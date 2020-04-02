@@ -1,5 +1,5 @@
 title: onestar's blog
-author: onestar
+author: onestarasdsaddsa
 email: hbji@raoncorp.com
 description: > # this means to ignore newlines until "show_exerpts:"
   Write an awesome description for your new site here. You can edit this
@@ -12,17 +12,18 @@ show_excerpts: true # set to true to show excerpts on the homepage
 sass:
   sass_dir: _sass
 plainwhite:
-  name: onestar
-  tagline: RAON Whitehat
+  name: RAON Whitehat
+  tagline: Core Research Team
   date_format: "%b %-d, %Y"
   sitemap: true # set to true to generate sitemap.xml content
 
   # generate social links in footer
   social_links:
-    instagram: ji_hanbyeol
+    github:  0nestar
+    linkedin: jekyll
     facebook: onestar0423
-    youtube: watch?v=WuChMihKVeM
-    # rss: rss
+    # twitter: jekyll
+    rss: rss
     # linkedIn: in/thelehhman
     # github:  thelehhman
     # dribbble: jekyll
@@ -51,10 +52,10 @@ plainwhite:
 # - about.md
 
 # Build settings
-theme: plainwhite
+    theme: plainwhite
 
-plugins:
-  - jekyll-seo-tag
-#  - jekyll-feed
-remote_theme: thelehhman/plainwhite-jekyll
-theme: plainwhite
+    plugins:
+       - jekyll-seo-tag
+         #       - jekyll-feed
+    remote_theme: thelehhman/plainwhite-jekyll
+#theme: plainwhite

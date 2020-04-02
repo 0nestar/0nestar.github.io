@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-04-02T04:39:20+00:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">onestar’s blog</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+</subtitle><author><name>onestar</name></author><entry><title type="html">easy_tornado</title><link href="http://localhost:4000/3%EC%9B%94/%EC%9B%94%EA%B0%84%EB%B3%B4%EA%B3%A0%EC%84%9C/easy_tornado/2020/03/28/easy_tornado.html" rel="alternate" type="text/html" title="easy_tornado" /><published>2020-03-28T19:31:01+00:00</published><updated>2020-03-28T19:31:01+00:00</updated><id>http://localhost:4000/3%EC%9B%94/%EC%9B%94%EA%B0%84%EB%B3%B4%EA%B3%A0%EC%84%9C/easy_tornado/2020/03/28/easy_tornado</id><content type="html" xml:base="http://localhost:4000/3%EC%9B%94/%EC%9B%94%EA%B0%84%EB%B3%B4%EA%B3%A0%EC%84%9C/easy_tornado/2020/03/28/easy_tornado.html">&lt;ul&gt;
+  &lt;li&gt;2020.03.29.일~&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/upload_image/Untitled.png&quot; alt=&quot;/assets/upload_image/Untitled.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/upload_image/Untitled%201.png&quot; alt=&quot;/assets/upload_image/Untitled%201.png&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;문제에 접속하면 3개의 파일이 존재한다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/upload_image/Untitled%202.png&quot; alt=&quot;/assets/upload_image/Untitled%202.png&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;hint.txt&lt;/code&gt;에 들어가보니 &lt;code class=&quot;highlighter-rouge&quot;&gt;filename&lt;/code&gt; 파라미터와 &lt;code class=&quot;highlighter-rouge&quot;&gt;filehash&lt;/code&gt; 파라미터를 전달받는다.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;filehash&lt;/code&gt;는 &lt;code class=&quot;highlighter-rouge&quot;&gt;md5(cookie_secret+md5(filename))&lt;/code&gt;으로 이뤄지는 것 같다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/upload_image/Untitled%203.png&quot; alt=&quot;/assets/upload_image/Untitled%203.png&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;filename에 ../../../../../../를 입력해서 전송해보았다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/upload_image/Untitled%204.png&quot; alt=&quot;/assets/upload_image/Untitled%204.png&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Error 페이지가 출력된다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/upload_image/Untitled%205.png&quot; alt=&quot;/assets/upload_image/Untitled%205.png&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;msg 파라미터를 다른 text로 바꾸면 해당 text가 출력된다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/upload_image/Untitled%206.png&quot; alt=&quot;/assets/upload_image/Untitled%206.png&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;template injection을 예상하여 ``을 입력해 보았다.&lt;/li&gt;
+  &lt;li&gt;필터링이 되어있는 듯 하다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/upload_image/Untitled%207.png&quot; alt=&quot;/assets/upload_image/Untitled%207.png&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;를 입력해 보니 3+4의 값이 출력되었다.&lt;/code&gt;안의 식이 계산되어 출력됨을 확인할 수 있다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/upload_image/Untitled%208.png&quot; alt=&quot;/assets/upload_image/Untitled%208.png&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;SSTI 취약점&lt;/code&gt;이 존재하므로, 해당 취약점을 악용해 내부 파일또는 정보를 획득할 수 있을 것이라고 생각하였다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;ssti-취약점이란&quot;&gt;SSTI 취약점이란?&lt;/h3&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;Server-Side Template를 사용하는 이유&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;동적 웹페이지를 통해 한번 가공한 결과를 웹페이지로 유저에게 보여줄 수 있음. 템플릿을 사용하면 간단한 문법으로 쉽게 제작할 수 있고, 유지보수도 편리함&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;종류&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Ruby, Java, Twig, Smarty, Freemarker, Jade/Codepen, Velocity, Mako, Jinja2&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;예시&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/Server%20Side%20Template%20Injection&quot;&gt;https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/Server Side Template Injection&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;`` 을 입력해서 결과 값이 화면에 출력되는지 확인해본다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;취약점 발생 원인&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Remote Code Excute가 템플릿의 파일위치로 들어가게 된다면, 인젝션이 가능하다. eval 함수와 동일하게 작동되기 때문에, 악의적인 데이터를 주입하여 다양한 영향을 끼칠 수 있다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;tornado란&quot;&gt;Tornado란?&lt;/h3&gt;
+
+&lt;hr /&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;해당 문제의 이름은 Tornado이다. SSTI와 Tornado를 검색해봤다. Tornado는 웹 프레임워크로, 파이썬으로 이벤트를 처리할 때 쓰여진다. 웹소켓 방식에 잘 활용되고, 비동기식 웹페이지를 위한 프레임워크이다.&lt;/p&gt;
+
+    &lt;p&gt;from tornado_jinja2 import Jinja2Loader&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;위와 같이 사용할 수 있다.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;tornado-사용법&quot;&gt;Tornado 사용법&lt;/h3&gt;
+
+&lt;hr /&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;간단한 Tornado 사용법을 알아보았다.&lt;/p&gt;
+
+    &lt;p&gt;import tornado.httpserver
+  import tornado.ioloop
+  import tornado.webclass&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;URL 또는 URL 패턴을 tornado.web.RequestHandler의 서브클래스로 매핑해서 사용한다.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://blog.naver.com/mildnightjin/221882536165&quot;&gt;https://blog.naver.com/mildnightjin/221882536165&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/upload_image/Untitled%209.png&quot; alt=&quot;/assets/upload_image/Untitled%209.png&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;지한별&quot;&gt;지한별&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;지한별&lt;/li&gt;
+  &lt;li&gt;지한별&lt;/li&gt;
+  &lt;li&gt;지한별&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?php&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;cp&quot;&gt;?&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/upload_image/image-20200401105439047.png&quot; alt=&quot;/assets/upload_image/image-20200401105439047.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;위 그림과 같다.&lt;/p&gt;</content><author><name>onestar</name></author><summary type="html">2020.03.29.일~</summary></entry><entry><title type="html">Frida-gum을 이용한 Android Hook</title><link href="http://localhost:4000/3%EC%9B%94/%EC%9B%94%EA%B0%84%EB%B3%B4%EA%B3%A0%EC%84%9C/frida-gum/android/hook/2020/03/26/Frida-gum-Android-Hook.html" rel="alternate" type="text/html" title="Frida-gum을 이용한 Android Hook" /><published>2020-03-26T19:31:01+00:00</published><updated>2020-03-26T19:31:01+00:00</updated><id>http://localhost:4000/3%EC%9B%94/%EC%9B%94%EA%B0%84%EB%B3%B4%EA%B3%A0%EC%84%9C/frida-gum/android/hook/2020/03/26/Frida%20gum%20Android%20Hook</id><content type="html" xml:base="http://localhost:4000/3%EC%9B%94/%EC%9B%94%EA%B0%84%EB%B3%B4%EA%B3%A0%EC%84%9C/frida-gum/android/hook/2020/03/26/Frida-gum-Android-Hook.html">&lt;p&gt;요약 메시지 적는곳 요약 요약 요약 메시지 적는곳 요약 요약 요약 메시지 적는곳 요약 요약 요약 메시지 적는곳 요약 요약 요약 메시지 적는곳 요약 요약 요약 메시지 적는곳 요약 요약 지 적는곳 요약 요약 요약 메시지 적는곳 요약 요약 지 적는곳 요약&lt;/p&gt;
+
+&lt;h2 id=&quot;frida-gum&quot;&gt;Frida-gum&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/frida/frida-gum&quot;&gt;https://github.com/frida/frida-gum&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Frida-gum은 Frida 후킹 프레임워크의 일부 기능을 담은 모듈로 코드 인라인 후킹, 코드 추적, 메모리 스캐너 등의 기능이 포함되어있습니다.&lt;/p&gt;
+
+&lt;p&gt;해당 라이브러리를 사용하면 frida의 후킹 기능만 따로 C++로 작성하여 활용할 수 있습니다.&lt;/p&gt;
+
+&lt;h3 id=&quot;build-tested-on-ubuntu-18041910&quot;&gt;Build (Tested on Ubuntu 18.04/19.10)&lt;/h3&gt;
+
+&lt;p&gt;Android frida-gum을 사용하려면 &lt;code class=&quot;highlighter-rouge&quot;&gt;Android NDK&lt;/code&gt; 사전 설치가 필요합니다.
+&lt;code class=&quot;highlighter-rouge&quot;&gt;Android NDK&lt;/code&gt;는 r21 버전까지 릴리즈되었으나 &lt;strong&gt;frida는 공식적으로 r20 버전까지 지원&lt;/strong&gt;합니다.
+(현재 글 작성 시점 2020. 03. 26 기준)&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;apt install -y unzip
+wget https://dl.google.com/android/repository/android-ndk-r20-linux-x86_64.zip
+unzip android-ndk-r20-linux-x86_64.zip
+rm -rf android-ndk-r20-linux-x86_64.zip
+mv ./android-ndk-r20 /opt/
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;맨 아래에 다음 줄을 추가하고 &lt;code class=&quot;highlighter-rouge&quot;&gt;source ~/.bashrc&lt;/code&gt;를 입력합니다. 정상적으로 설정되었다면 &lt;code class=&quot;highlighter-rouge&quot;&gt;ndk-build&lt;/code&gt; 명령어 사용이 가능해야합니다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;export ANDROID_NDK_ROOT=/opt/android-ndk-r20
+export PATH=$PATH:$ANDROID_NDK_ROOT
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;frida-gum 빌드를 위해 &lt;code class=&quot;highlighter-rouge&quot;&gt;npm&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;python2&lt;/code&gt;를 설치하고 아래 명령어를 입력합니다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;cd /root
+apt install python git npm make
+git clone --recursive [https://github.com/frida/frida](https://github.com/frida/frida-gum)
+cd frida
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;위 과정까지 진행했다면 아래 명령어를 입력했을때 android gum 라이브러리가 정상적으로 빌드됩니다. 문서 기준으로 빌드 디렉토리는 &lt;code class=&quot;highlighter-rouge&quot;&gt;/root/frida/build&lt;/code&gt;에 생성됩니다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;make gum-android-arm64
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Frida releases에 prebuilt된 frida-gum을 내려받습니다. releases에는 &lt;code class=&quot;highlighter-rouge&quot;&gt;frida-gum.h&lt;/code&gt; 헤더파일과 간단한 후킹 예제가 포함되어있습니다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;wget [https://github.com/frida/frida/releases/download/12.8.18/frida-gum-devkit-12.8.18-android-arm64.tar.xz](https://github.com/frida/frida/releases/download/12.8.18/frida-gum-devkit-12.8.18-android-arm64.tar.xz)
+mkdir androidhook
+cd androidhook
+tar -xf [frida-gum-devkit-12.8.18-android-arm64.tar.xz](https://github.com/frida/frida/releases/download/12.8.18/frida-gum-devkit-12.8.18-android-arm64.tar.xz)
+rm -rf [frida-gum-devkit-12.8.18-android-arm64.tar.xz](https://github.com/frida/frida/releases/download/12.8.18/frida-gum-devkit-12.8.18-android-arm64.tar.xz)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;frida-gum-example.c&lt;/code&gt;를 컴파일하기 위해 다음 명령어를 입력하면 &lt;code class=&quot;highlighter-rouge&quot;&gt;frida-gum-example&lt;/code&gt; 바이너리가 생성됩니다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/opt/android-ndk-r20/toolchains/llvm/prebuilt/linux-x86_64/bin/aarch64-linux-android21-clang -fPIC -DANDROID -ffunction-sections -fdata-sections -Wall -Os -pipe -g3 frida-gum-example.c -o frida-gum-example -L. -lfrida-gum -llog -ldl -lm -fuse-ld=gold -Wl,--icf=all,--gc-sections,-z,noexecstack,-z,relro,-z,now -L/root/frida/build/frida-android-arm64/lib -L/root/frida/build/sdk-android-arm64/lib
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;hook&quot;&gt;Hook&lt;/h3&gt;
+
+&lt;p&gt;아래는 &lt;code class=&quot;highlighter-rouge&quot;&gt;frida-gum&lt;/code&gt; 을 이용한 후킹 예제 코드의 일부입니다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;...
+
+int
+main (int argc,
+      char * argv[])
+{
+  GumInterceptor * interceptor;
+  GumInvocationListener * listener;
+
+  gum_init_embedded ();
+
+  interceptor = gum_interceptor_obtain ();
+  listener = g_object_new (EXAMPLE_TYPE_LISTENER, NULL);
+
+  gum_interceptor_begin_transaction (interceptor);
+  gum_interceptor_attach (interceptor,
+      GSIZE_TO_POINTER (gum_module_find_export_by_name (NULL, &quot;open&quot;)),
+      listener,
+      GSIZE_TO_POINTER (EXAMPLE_HOOK_OPEN));
+  gum_interceptor_attach (interceptor,
+      GSIZE_TO_POINTER (gum_module_find_export_by_name (NULL, &quot;close&quot;)),
+      listener,
+      GSIZE_TO_POINTER (EXAMPLE_HOOK_CLOSE));
+  gum_interceptor_end_transaction (interceptor);
+
+  close (open (&quot;/etc/hosts&quot;, O_RDONLY));
+  close (open (&quot;/etc/fstab&quot;, O_RDONLY));
+
+  g_print (&quot;[*] listener got %u calls\n&quot;, EXAMPLE_LISTENER (listener)-&amp;gt;num_calls);
+
+  gum_interceptor_detach (interceptor, listener);
+
+  close (open (&quot;/etc/hosts&quot;, O_RDONLY));
+  close (open (&quot;/etc/fstab&quot;, O_RDONLY));
+
+  g_print (&quot;[*] listener still has %u calls\n&quot;, EXAMPLE_LISTENER (listener)-&amp;gt;num_calls);
+
+  g_object_unref (listener);
+  g_object_unref (interceptor);
+
+  gum_deinit_embedded ();
+
+  return 0;
+}
+
+static void
+example_listener_on_enter (GumInvocationListener * listener,
+                           GumInvocationContext * ic)
+{
+  ExampleListener * self = EXAMPLE_LISTENER (listener);
+  ExampleHookId hook_id = GUM_IC_GET_FUNC_DATA (ic, ExampleHookId);
+
+  switch (hook_id)
+  {
+    case EXAMPLE_HOOK_OPEN:
+      g_print (&quot;[*] open(\&quot;%s\&quot;)\n&quot;, gum_invocation_context_get_nth_argument (ic, 0));
+      break;
+    case EXAMPLE_HOOK_CLOSE:
+      g_print (&quot;[*] close(%d)\n&quot;, (int) gum_invocation_context_get_nth_argument (ic, 0));
+      break;
+  }
+
+  self-&amp;gt;num_calls++;
+}
+...
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;아래의 방법을 참고하면 후킹할 함수를 조금 더 유연하게 제어할 수 있습니다.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;gem_interceptor_attach&lt;/code&gt;로 리스너를 등록하면 함수가 호출되었을 때 &lt;code class=&quot;highlighter-rouge&quot;&gt;on_enter&lt;/code&gt; → &lt;code class=&quot;highlighter-rouge&quot;&gt;original_func&lt;/code&gt; → &lt;code class=&quot;highlighter-rouge&quot;&gt;on_leave&lt;/code&gt; 순으로 호출됩니다.
+별도 문서화된 내용은 없으나 &lt;code class=&quot;highlighter-rouge&quot;&gt;gem_interceptor_replace&lt;/code&gt; 함수를 사용하면 원본 함수를 호출하지 않고 새로운 함수로 대체할 수 있습니다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;on_enter&lt;/code&gt; 핸들러에서 인자값을 가져오거나 조작할 수 있습니다.
+인자값 획득: &lt;code class=&quot;highlighter-rouge&quot;&gt;gum_invocation_context_get_nth_argument(ic, index);&lt;/code&gt; 
+인자값 조작: &lt;code class=&quot;highlighter-rouge&quot;&gt;gum_invocation_context_replace_nth_argument (ic, index, raw_value);&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;on_leave&lt;/code&gt; 핸들러에서 원래 반환값을 가져오거나 반환값을 대체할 수 있습니다.
+반환값 획득: &lt;code class=&quot;highlighter-rouge&quot;&gt;gum_invocation_context_get_return_value(ic);&lt;/code&gt;
+반환값 대체: &lt;code class=&quot;highlighter-rouge&quot;&gt;gum_invocation_context_replace_return_value(ic, raw_value);&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;해당 바이너리를 다른 App에 인젝션하면 print 출력 로그를 볼 수 없기 때문에 logcat을 통해 로그를 확인할 수 있도록 필요한 코드를 추가하고 &lt;code class=&quot;highlighter-rouge&quot;&gt;g_print&lt;/code&gt; 함수를 &lt;code class=&quot;highlighter-rouge&quot;&gt;LOGI&lt;/code&gt;로 전부 대체합니다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#include &amp;lt;fcntl.h&amp;gt;
+#include &amp;lt;unistd.h&amp;gt;
+#include &amp;lt;android/log.h&amp;gt;
+
+#define __flush_cache(c, n)        __builtin___clear_cache(reinterpret_cast&amp;lt;char *&amp;gt;(c), reinterpret_cast&amp;lt;char *&amp;gt;(c) + n)
+#define LOGNAME &quot;HOOKTEST&quot;
+#define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOGNAME, __VA_ARGS__)
+#define LOGD(...) __android_log_print(ANDROID_LOG_DEBUG  , LOGNAME, __VA_ARGS__)
+#define LOGI(...) __android_log_print(ANDROID_LOG_INFO   , LOGNAME, __VA_ARGS__)
+#define LOGW(...) __android_log_print(ANDROID_LOG_WARN   , LOGNAME, __VA_ARGS__)
+#define LOGE(...) __android_log_print(ANDROID_LOG_ERROR  , LOGNAME, __VA_ARGS__)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;그리고 바이너리가 App에 인젝션 되었을 때 Hook 코드가 바로 실행될 수 있도록 진입점 &lt;code class=&quot;highlighter-rouge&quot;&gt;int main() { ... }&lt;/code&gt;을 **&lt;code class=&quot;highlighter-rouge&quot;&gt;__attribute**((constructor)) int init(void *arg) { ... }&lt;/code&gt;로 대체한 다음, 아래와 같이  &lt;code class=&quot;highlighter-rouge&quot;&gt;-shared&lt;/code&gt; 옵션을 추가하여 &lt;code class=&quot;highlighter-rouge&quot;&gt;so&lt;/code&gt; 바이너리로 빌드되도록 합니다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/opt/android-ndk-r20/toolchains/llvm/prebuilt/linux-x86_64/bin/aarch64-linux-android21-clang -fPIC -DANDROID -ffunction-sections -fdata-sections -Wall -Os -pipe -g3 frida-gum-example.c -o frida-gum-example -L. -lfrida-gum -llog -ldl -lm -fuse-ld=gold -Wl,--icf=all,--gc-sections,-z,noexecstack,-z,relro,-z,now -L/root/frida/build/frida-android-arm64/lib -L/root/frida/build/sdk-android-arm64/lib **-shared**
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;injection&quot;&gt;Injection&lt;/h3&gt;
+
+&lt;p&gt;빌드한 바이너리를 인젝션해주는 인젝터는 아래 소스코드를 변형하여 사용하였습니다.
+&lt;a href=&quot;https://github.com/jekinleeph/LibInjectAll/blob/master/inject.c&quot;&gt;https://github.com/jekinleeph/LibInjectAll/blob/master/inject.c&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;기본적인 인젝션 원리는 &lt;code class=&quot;highlighter-rouge&quot;&gt;ptrace&lt;/code&gt;를 이용해 대상 프로세스에  &lt;code class=&quot;highlighter-rouge&quot;&gt;dlopen(&quot;/path/to/hook.so&quot;);&lt;/code&gt; 원격 호출을 유도하는 것입니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;/assets/upload_image/injector.zip&quot;&gt;injector.zip&lt;/a&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;int main(int argc, char const *argv[]) {
+    if (argc != 3) {
+        printf(&quot;Usage: %s [process id] [library full path]\n&quot;, argv[0]);
+        return -1;
+    }
+
+    pid_t pid = atoi(argv[1]);
+    const char *lib = argv[2];
+
+    if (!pid) {
+        printf(&quot;[+] TestInject dlopen(%s)\n&quot;, lib);
+        void *r = dlopen(lib, RTLD_NOW | RTLD_LOCAL);
+        printf(&quot;[+] TestInject Result=%p\n&quot;, r);
+        sleep(-1);
+    }
+
+    if (ptrace_attach(pid) == -1) {
+        printf(&quot;[-] ptrace_attach failed\n&quot;);
+        return -1;
+    }
+
+    long raddr = remote_call(pid, mmap, 6LL, 0LL, 0x400LL, PROT_READ | PROT_WRITE, MAP_PRIVATE | MAP_ANONYMOUS, 0LL, 0LL);
+    if (!raddr) {
+        printf(&quot;[-] remote mmap() failed !!\n&quot;);
+        return -1;
+    }
+
+    ptrace_write(pid, (uint8_t*)raddr, (uint8_t*)lib, strlen(lib) + 1);
+    if (!remote_call(pid, dlopen, 2, raddr, RTLD_NOW | RTLD_LOCAL))
+    {
+        printf(&quot;[-] remote dlopen() failed !!\n&quot;);
+        return -1;
+    }
+
+    if (remote_call(pid, munmap, 2, raddr, 0x400LL)) {
+        printf(&quot;[-] remote munmap() failed !!\n&quot;);
+        return -1;
+    }
+    
+    ptrace_detach(pid);
+    printf(&quot;[+] injected pid=%d raddr=%p\n&quot;, pid, (void *)raddr);
+    return 0;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;injector 압축을 풀고 &lt;code class=&quot;highlighter-rouge&quot;&gt;ndk-build&lt;/code&gt;를 실행하면 &lt;code class=&quot;highlighter-rouge&quot;&gt;~/injector/libs/arm64-v8a&lt;/code&gt; 디렉토리에 &lt;code class=&quot;highlighter-rouge&quot;&gt;injector&lt;/code&gt; 바이너리가 생성됩니다.&lt;/p&gt;
+
+&lt;p&gt;테스트 단말을 PC에 연결하고 &lt;code class=&quot;highlighter-rouge&quot;&gt;adb push&lt;/code&gt;명령어로 &lt;code class=&quot;highlighter-rouge&quot;&gt;injector&lt;/code&gt;와 &lt;code class=&quot;highlighter-rouge&quot;&gt;frida-gum-example&lt;/code&gt;을 &lt;code class=&quot;highlighter-rouge&quot;&gt;/data/local/tmp&lt;/code&gt; 디렉토리에 push합니다.&lt;/p&gt;
+
+&lt;p&gt;인젝션할 대상 프로세스를 &lt;code class=&quot;highlighter-rouge&quot;&gt;ps&lt;/code&gt; 명령어로 PID를 확인한 다음, 아래와 같이 입력합니다.&lt;/p&gt;
+
+&lt;p&gt;여기서 &lt;code class=&quot;highlighter-rouge&quot;&gt;so&lt;/code&gt; 바이너리 위치는 &lt;strong&gt;절대경로&lt;/strong&gt;를 입력해야하고 App에서 접근 가능한 디렉토리에 있어야합니다. (Windows 환경에서 NtCreateThreadEx를 이용한 Dll Injection도 비슷한 이유로 절대경로가 요구됩니다.)&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/data/local/tmp$ su
+/data/local/tmp# ls
+injector   frida-gum-example
+/data/local/tmp# mount -o rw,remount /system
+/data/local/tmp# cp ./frida-gum-example /system/lib64/
+/data/local/tmp# chmod +x *
+/data/local/tmp# ./injector
+**Usage: %s [process id] [library full path]**
+/data/local/tmp# ./injector &amp;lt;pid&amp;gt; /system/lib64/frida-gum-example
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;문서에서는 앱별 권한 이슈가 있어 frida-gum-example을 /system/lib64/로 복사한다음 인젝션하였습니다.
+앱이 대상으로 정상적으로 인젝션되었다면 아래 그림과 같이 &lt;code class=&quot;highlighter-rouge&quot;&gt;logcat&lt;/code&gt;을 통해 후킹 관련 로그를 확인할 수 있습니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/upload_image/Untitled_js.png&quot; alt=&quot;/assets/upload_image/Untitled_js.png&quot; /&gt;&lt;/p&gt;</content><author><name>onestar</name></author><summary type="html">요약 메시지 적는곳 요약 요약 요약 메시지 적는곳 요약 요약 요약 메시지 적는곳 요약 요약 요약 메시지 적는곳 요약 요약 요약 메시지 적는곳 요약 요약 요약 메시지 적는곳 요약 요약 지 적는곳 요약 요약 요약 메시지 적는곳 요약 요약 지 적는곳 요약</summary></entry><entry><title type="html">Integrating razorpay into your webapp</title><link href="http://localhost:4000/3%EC%9B%94/%EC%9B%94%EA%B0%84%EB%B3%B4%EA%B3%A0%EC%84%9C/javascript/nodejs/2019/03/23/welcome-to-jekyll.html" rel="alternate" type="text/html" title="Integrating razorpay into your webapp" /><published>2019-03-23T15:33:36+00:00</published><updated>2019-03-23T15:33:36+00:00</updated><id>http://localhost:4000/3%EC%9B%94/%EC%9B%94%EA%B0%84%EB%B3%B4%EA%B3%A0%EC%84%9C/javascript/nodejs/2019/03/23/welcome-to-jekyll</id><content type="html" xml:base="http://localhost:4000/3%EC%9B%94/%EC%9B%94%EA%B0%84%EB%B3%B4%EA%B3%A0%EC%84%9C/javascript/nodejs/2019/03/23/welcome-to-jekyll.html">&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Razorpay&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;razorpay&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;rzp&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Razorpay&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;
+	&lt;span class=&quot;na&quot;&gt;key_id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;KEY_ID&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+	&lt;span class=&quot;na&quot;&gt;secret&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// capture request&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;rzp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;capture&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;payment_id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;cost&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/upload_image/Untitled 1.png&quot; alt=&quot;/assets/upload_image/Untitled 1.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Check out the &lt;a href=&quot;https://jekyllrb.com/docs/home&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://talk.jekyllrb.com/&quot;&gt;Jekyll Talk&lt;/a&gt;.&lt;/p&gt;</content><author><name>onestar</name></author><summary type="html">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse</summary></entry></feed>
