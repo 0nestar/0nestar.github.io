@@ -9,18 +9,18 @@
             <lastmod>2019-06-07T00:00:00+00:00</lastmod>
             <priority>1.00</priority>
         </url><url>
-                <loc>http://localhost:4000/3%EC%9B%94/%EC%9B%94%EA%B0%84%EB%B3%B4%EA%B3%A0%EC%84%9C/easy_tornado/2020/03/28/easy_tornado.html</loc>
+                <loc>http://localhost:4000/about/</loc>
+                <lastmod>2020-04-02T19:31:01+00:00</lastmod>
+                <changefreq>weekly</changefreq>
+                <priority>0.80</priority>
+            </url><url>
+                <loc>http://localhost:4000/3%EC%9B%94/%EC%9B%94%EA%B0%84%EB%B3%B4%EA%B3%A0%EC%84%9C/easy_tornado/easy_tornado.html</loc>
                 <lastmod>2020-03-28T19:31:01+00:00</lastmod>
                 <changefreq>weekly</changefreq>
                 <priority>0.80</priority>
             </url><url>
-                <loc>http://localhost:4000/3%EC%9B%94/%EC%9B%94%EA%B0%84%EB%B3%B4%EA%B3%A0%EC%84%9C/frida-gum/android/hook/2020/03/26/Frida-gum-Android-Hook.html</loc>
+                <loc>http://localhost:4000/3%EC%9B%94/%EC%9B%94%EA%B0%84%EB%B3%B4%EA%B3%A0%EC%84%9C/frida-gum/android/hook/Frida-gum-Android-Hook.html</loc>
                 <lastmod>2020-03-26T19:31:01+00:00</lastmod>
-                <changefreq>weekly</changefreq>
-                <priority>0.80</priority>
-            </url><url>
-                <loc>http://localhost:4000/3%EC%9B%94/%EC%9B%94%EA%B0%84%EB%B3%B4%EA%B3%A0%EC%84%9C/javascript/nodejs/2019/03/23/welcome-to-jekyll.html</loc>
-                <lastmod>2019-03-23T15:33:36+00:00</lastmod>
                 <changefreq>weekly</changefreq>
                 <priority>0.80</priority>
             </url></urlset>

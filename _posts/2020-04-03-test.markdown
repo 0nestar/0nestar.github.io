@@ -1,0 +1,11 @@
+---
+layout: post
+title:  "member_profile"
+date:   2020-04-03 01:01:01 +0530
+categories: member core_research_team about
+permalink: /about/
+---
+
+
+# test
+- markdown test
